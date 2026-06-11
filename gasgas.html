@@ -3,534 +3,82 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>DeudaGas | Consulta de Deudas y Facturas Vanti</title>
-
-<meta name="description" content="Consulta tu deuda de gas Vanti, obtén asesoría personalizada y conoce descuentos disponibles para ponerte al día.">
-
+<title>Consulta de Deudas Vanti</title>
+<meta name="description" content="Consulta de deudas, gestión de facturas y descuentos.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
-scroll-behavior:smooth;
-}
-
-body{
-background:#061A40;
-color:white;
-overflow-x:hidden;
-}
-
-/* HEADER */
-
-.header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:80px;
-padding:0 40px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-background:rgba(6,26,64,.9);
-backdrop-filter:blur(15px);
-border-bottom:1px solid rgba(255,255,255,.08);
-z-index:999;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-size:28px;
-font-weight:700;
-}
-
-.logo i{
-color:#00C853;
-}
-
-.menu{
-display:flex;
-gap:30px;
-}
-
-.menu a{
-color:white;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
-
-.menu a:hover{
-color:#00C853;
-}
-
-.btn-header{
-background:#00C853;
-padding:12px 25px;
-border-radius:50px;
-text-decoration:none;
-color:white;
-font-weight:700;
-}
-
-/* HERO */
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-padding:120px 20px 50px;
-background:linear-gradient(-45deg,#061A40,#0057FF,#00C853,#061A40);
-background-size:400% 400%;
-animation:fondo 15s ease infinite;
-}
-
-@keyframes fondo{
-0%{background-position:0% 50%;}
-50%{background-position:100% 50%;}
-100%{background-position:0% 50%;}
-}
-
-.hero-content{
-max-width:1200px;
-width:100%;
-display:grid;
-grid-template-columns:1.2fr .8fr;
-gap:40px;
-}
-
-.hero-text h1{
-font-size:4rem;
-margin-bottom:20px;
-line-height:1.1;
-}
-
-.hero-text span{
-color:#00C853;
-}
-
-.hero-text p{
-font-size:1.2rem;
-opacity:.9;
-line-height:1.6;
-margin-bottom:30px;
-}
-
-.buttons{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.btn{
-padding:15px 30px;
-border-radius:50px;
-text-decoration:none;
-font-weight:700;
-}
-
-.btn-primary{
-background:#00C853;
-color:white;
-}
-
-.btn-secondary{
-background:white;
-color:#0057FF;
-}
-
-.stats{
-display:grid;
-gap:20px;
-}
-
-.stat-card{
-background:rgba(255,255,255,.08);
-backdrop-filter:blur(12px);
-padding:25px;
-border-radius:20px;
-text-align:center;
-}
-
-.stat-card h2{
-font-size:2rem;
-color:#00C853;
-}
-
-/* SECCIONES */
-
-section{
-padding:80px 20px;
-}
-
-.container{
-max-width:1200px;
-margin:auto;
-}
-
-.section-title{
-text-align:center;
-font-size:2.5rem;
-margin-bottom:50px;
-}
-
-.cards{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.card{
-background:rgba(255,255,255,.08);
-padding:25px;
-border-radius:20px;
-backdrop-filter:blur(10px);
-text-align:center;
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-}
-
-.card i{
-font-size:40px;
-color:#00C853;
-margin-bottom:15px;
-}
-
-/* FORMULARIO */
-
-.form-container{
-max-width:700px;
-margin:auto;
-background:rgba(255,255,255,.08);
-padding:40px;
-border-radius:25px;
-}
-
-form{
-display:grid;
-gap:15px;
-}
-
-input,
-textarea{
-padding:15px;
-border:none;
-border-radius:12px;
-font-size:16px;
-}
-
-button{
-padding:15px;
-background:#00C853;
-border:none;
-border-radius:12px;
-color:white;
-font-size:18px;
-font-weight:700;
-cursor:pointer;
-}
-
-/* WHATSAPP */
-
-.whatsapp-section{
-text-align:center;
-background:#0057FF;
-}
-
-.whatsapp-big{
-display:inline-block;
-padding:18px 35px;
-background:#00C853;
-color:white;
-border-radius:50px;
-text-decoration:none;
-font-weight:700;
-margin-top:20px;
-}
-
-/* FOOTER */
-
-footer{
-background:#04122d;
-padding:40px 20px;
-text-align:center;
-}
-
-footer p{
-opacity:.8;
-}
-
-/* BOTON FLOTANTE */
-
-.float{
-position:fixed;
-bottom:25px;
-right:25px;
-width:65px;
-height:65px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:30px;
-color:white;
-text-decoration:none;
-box-shadow:0 10px 25px rgba(0,0,0,.4);
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-.hero-content{
-grid-template-columns:1fr;
-}
-
-.hero-text h1{
-font-size:2.5rem;
-}
-
-.menu{
-display:none;
-}
-
-.header{
-padding:0 20px;
-}
-
-}
-
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,sans-serif}
+body{background:#061A40;color:#fff;overflow-x:hidden}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;background:linear-gradient(-45deg,#061A40,#0057FF,#00C853,#061A40);background-size:400% 400%;animation:bg 12s ease infinite}
+@keyframes bg{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.card{max-width:1200px;width:95%;background:rgba(255,255,255,.08);backdrop-filter:blur(15px);border-radius:25px;padding:40px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:30px}
+h1{font-size:3rem;margin-bottom:15px}
+p{opacity:.9;line-height:1.6}
+.btn{display:inline-block;margin-top:20px;padding:15px 25px;border-radius:50px;text-decoration:none;font-weight:700}
+.primary{background:#00C853;color:#fff}
+.secondary{background:#fff;color:#0057FF}
+.stats{display:grid;gap:15px}
+.box{background:rgba(255,255,255,.1);padding:20px;border-radius:18px}
+.section{padding:80px 20px;max-width:1200px;margin:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.feature{background:rgba(255,255,255,.06);padding:25px;border-radius:20px}
+form{display:grid;gap:12px}
+input,textarea{padding:14px;border:none;border-radius:12px}
+button{padding:14px;background:#00C853;color:#fff;border:none;border-radius:12px;cursor:pointer}
+.whatsapp{position:fixed;right:20px;bottom:20px;background:#25D366;color:#fff;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:28px}
+@media(max-width:768px){.grid{grid-template-columns:1fr}h1{font-size:2rem}}
 </style>
 </head>
 <body>
 
-<header class="header">
-
-<div class="logo">
-<i class="fas fa-file-invoice-dollar"></i>
-DeudaGas
-</div>
-
-<nav class="menu">
-<a href="#beneficios">Beneficios</a>
-<a href="#servicios">Servicios</a>
-<a href="#formulario">Consulta Ahora</a>
-</nav>
-
-<a href="https://wa.me/573150978792" class="btn-header">
-WhatsApp
-</a>
-
-</header>
-
 <section class="hero">
-
-<div class="hero-content">
-
-<div class="hero-text">
-
-<h1>
-¿Tienes una deuda con Vanti?<br>
-<span>Nosotros te ayudamos a solucionarla.</span>
-</h1>
-
-<p>
-Consulta tu deuda, conoce los descuentos disponibles y recibe asesoría personalizada para ponerte al día de manera rápida y segura.
-</p>
-
-<div class="buttons">
-<a href="#formulario" class="btn btn-primary">Consultar Ahora</a>
-<a href="https://wa.me/573150978792" class="btn btn-secondary">WhatsApp</a>
+<div class="card">
+<div class="grid">
+<div>
+<h1>¿Tienes una deuda con Vanti? Nosotros te ayudamos a solucionarla.</h1>
+<p>Consulta tu deuda, conoce descuentos disponibles y recibe asesoría personalizada para ponerte al día.</p>
+<a href="#formulario" class="btn primary">Consultar Ahora</a>
+<a href="https://wa.me/573150978792" class="btn secondary">WhatsApp</a>
 </div>
-
-</div>
-
 <div class="stats">
-
-<div class="stat-card">
-<h2>5000+</h2>
-<p>Clientes Atendidos</p>
+<div class="box"><h2>5000+</h2><p>Clientes atendidos</p></div>
+<div class="box"><h2>98%</h2><p>Satisfacción</p></div>
+<div class="box"><h2>24/7</h2><p>Atención</p></div>
 </div>
-
-<div class="stat-card">
-<h2>98%</h2>
-<p>Satisfacción</p>
 </div>
-
-<div class="stat-card">
-<h2>24/7</h2>
-<p>Atención</p>
 </div>
-
-</div>
-
-</div>
-
 </section>
 
-<section id="beneficios">
-
-<div class="container">
-
-<h2 class="section-title">Beneficios</h2>
-
+<section class="section">
+<h2>Servicios</h2><br>
 <div class="cards">
-
-<div class="card">
-<i class="fas fa-search"></i>
-<h3>Consulta Rápida</h3>
+<div class="feature">Consulta de deudas</div>
+<div class="feature">Gestión de facturas</div>
+<div class="feature">Descuentos disponibles</div>
+<div class="feature">Atención personalizada</div>
 </div>
-
-<div class="card">
-<i class="fas fa-percent"></i>
-<h3>Descuentos Disponibles</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-user-shield"></i>
-<h3>Gestión Segura</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-headset"></i>
-<h3>Atención Personalizada</h3>
-</div>
-
-</div>
-
-</div>
-
 </section>
 
-<section id="servicios">
-
-<div class="container">
-
-<h2 class="section-title">Nuestros Servicios</h2>
-
-<div class="cards">
-
-<div class="card">
-<i class="fas fa-file-invoice"></i>
-<h3>Consulta de Deudas</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-money-bill-wave"></i>
-<h3>Gestión de Facturas</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-tags"></i>
-<h3>Obtención de Descuentos</h3>
-</div>
-
-<div class="card">
-<i class="fas fa-handshake"></i>
-<h3>Asesoría Personalizada</h3>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="formulario">
-
-<div class="container">
-
-<h2 class="section-title">Consulta tu Caso</h2>
-
-<div class="form-container">
-
-<form id="consultaForm">
-
-<input type="text" id="nombre" placeholder="Nombre Completo" required>
-
-<input type="tel" id="telefono" placeholder="Número Celular" required>
-
-<input type="text" id="contrato" placeholder="Número de Contrato">
-
-<textarea id="mensaje" rows="5" placeholder="Cuéntanos tu situación"></textarea>
-
-<button type="submit">
-Consultar por WhatsApp
-</button>
-
+<section class="section" id="formulario">
+<h2>Solicita tu consulta</h2><br>
+<form id="form">
+<input id="nombre" placeholder="Nombre completo" required>
+<input id="cel" placeholder="Celular" required>
+<input id="contrato" placeholder="Número de contrato">
+<textarea id="msg" placeholder="Mensaje"></textarea>
+<button type="submit">Consultar por WhatsApp</button>
 </form>
-
-</div>
-
-</div>
-
 </section>
 
-<section class="whatsapp-section">
-
-<div class="container">
-
-<h2>¿Necesitas ayuda inmediata?</h2>
-
-<p>Habla con un asesor especializado ahora mismo.</p>
-
-<a href="https://wa.me/573150978792" class="whatsapp-big">
-<i class="fab fa-whatsapp"></i> Hablar por WhatsApp
-</a>
-
-</div>
-
-</section>
-
-<footer>
-
-<h3>DeudaGas</h3>
-
-<p>Consulta de Deudas • Gestión de Facturas • Atención Personalizada</p>
-
-<p>WhatsApp: +57 315 097 8792</p>
-
-</footer>
-
-<a href="https://wa.me/573150978792" class="float">
-<i class="fab fa-whatsapp"></i>
-</a>
+<a class="whatsapp" href="https://wa.me/573150978792"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-
-document.getElementById('consultaForm').addEventListener('submit', function(e){
-
+document.getElementById('form').addEventListener('submit',e=>{
 e.preventDefault();
-
-let nombre = document.getElementById('nombre').value;
-let telefono = document.getElementById('telefono').value;
-let contrato = document.getElementById('contrato').value;
-let mensaje = document.getElementById('mensaje').value;
-
-let texto =
-`Hola, deseo consultar mi deuda.%0A%0ANombre: ${nombre}%0ATeléfono: ${telefono}%0AContrato: ${contrato}%0AMensaje: ${mensaje}`;
-
-window.open(
-`https://wa.me/573150978792?text=${texto}`,
-'_blank'
-);
-
+const txt=`Hola, deseo consultar mi deuda.%0ANombre: ${nombre.value}%0ACelular: ${cel.value}%0AContrato: ${contrato.value}%0AMensaje: ${msg.value}`;
+window.open('https://wa.me/573150978792?text='+txt,'_blank');
 });
-
 </script>
-
 </body>
 </html>
